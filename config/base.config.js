@@ -7,7 +7,7 @@ module.exports = {
     index: path.join(__dirname, "../src/index.jsx"),
   },
   resolve: {
-    extensions: ["*", ".js", ".jsx"],
+    extensions: ["*", ".js", "jsx", ".ts", ".tsx"],
   },
   devtool: "inline-source-map",
   devServer: {
