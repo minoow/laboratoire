@@ -1,19 +1,5 @@
-const path = require("path");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
+const { merge } = require("webpack-merge");
+const baseConfig = require("./config/base.config.js");
+const moduleConfig = require("./config/modules.config.js");
 
-module.exports = {
-  entry: {
-    index: "./src/index.js",
-    print: "./src/print.js",
-  },
-  plugins: [
-    new HtmlWebpackPlugin({
-      title: "laboratorie",
-    }),
-  ],
-  output: {
-    filename: "[name].bundle.js",
-    path: path.resolve(__dirname, "docs"),
-    clean: true,
-  },
-};
+module.exports = merge([baseConfig, moduleConfig]);
