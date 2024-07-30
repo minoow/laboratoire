@@ -1,10 +1,14 @@
 const path = require("path");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
   mode: "production",
   entry: {
     index: path.join(__dirname, "../src/index.jsx"),
+  },
+  output: {
+    filename: "[name].bundle.js",
+    path: path.resolve(__dirname, "../docs"),
+    clean: true,
   },
   resolve: {
     extensions: ["*", ".js", "jsx", ".ts", ".tsx"],
@@ -16,17 +20,6 @@ module.exports = {
       publicPath: "/",
     },
     open: true,
-  },
-  plugins: [
-    new HtmlWebpackPlugin({
-      title: "laboratorie",
-      template: path.join(__dirname, "../src/index.html"),
-    }),
-  ],
-  output: {
-    filename: "[name].bundle.js",
-    path: path.resolve(__dirname, "../docs"),
-    clean: true,
   },
   optimization: {
     runtimeChunk: "single",

@@ -1,6 +1,8 @@
-const { includes } = require("lodash");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 
 module.exports = {
+  plugins: [new MiniCssExtractPlugin()],
   module: {
     rules: [
       {
@@ -9,6 +11,7 @@ module.exports = {
         use: {
           loader: "babel-loader",
           options: {
+            plugins: ["@emotion"],
             presets: [
               "@babel/preset-env",
               ["@babel/preset-react", { runtime: "automatic" }],
@@ -23,8 +26,13 @@ module.exports = {
       },
       {
         test: /\.css$/i,
-        use: ["style-loader", "css-loader"],
+        use: [MiniCssExtractPlugin.loader, "css-loader"],
       },
     ],
   },
+  optimization: {
+    minimizer: [new CssMinimizerPlugin()],
+    minimize: true,
+  },
+  plugins: [new MiniCssExtractPlugin()],
 };
