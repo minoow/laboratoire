@@ -9,7 +9,9 @@ const HomePage = () => {
       @media screen and (max-width: 720px) {
       padding: 24px 40px;
       `}
-    ></div>
+    >
+      github action test
+    </div>
   );
 };
 
