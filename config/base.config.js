@@ -13,6 +13,7 @@ module.exports = {
     clean: true,
   },
   resolve: {
+    modules: [path.resolve("./src"), path.resolve("./node_modules")],
     extensions: ["*", ".js", "jsx", ".ts", ".tsx"],
   },
   devtool: "inline-source-map",
